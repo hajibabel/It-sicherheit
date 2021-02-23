@@ -1,0 +1,130 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%  This template is created by Philipp Ludewig	and its based on the       	     %%
+%%  MES template by Jan Boelmann and Shashi Kiran ShivarKumar Honnali			 %%
+%%  for further informations please contact: [Mailadress]      			         %%
+%%																			     %%
+%%																			   	 %%
+%%																			     %%
+%% 																			     %%
+%%                                                                		         %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%   						     Preamble                                      %%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%       
+%% hier wird das Dokument mit den Einstellungen von oben definiert               %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[
+   13pt,               % Schriftgroesse 13pt
+   a4paper,             % Layout fuer Din A4
+   oneside,             % Layout fuer einseitigen Druck
+   headinclude,         % Kopfzeile wird Seiten-Layouts mit beruecksichtigt
+   headsepline,         % horizontale Linie unter Kolumnentitel
+%  footinclude,         % Kopfzeile wird Seiten-Layouts mit beruecksichtigt
+%  footsepline,         % horizontale Linie unter Kolumnentitel
+%  plainheadsepline,    % horizontale Linie auch beim plain-Style
+   plainfootsepline,    % horizontale Linie auch beim plain-Style
+   BCOR12mm,            % Korrektur fuer die Bindung
+   DIV17,               % DIV-Wert fuer die Erstellung des Satzspiegels, siehe scrguide
+%  halfparskip,         % Absatzabstand statt Absatzeinzug
+   openany,             % Kapitel können auf geraden und ungeraden Seiten beginnen
+   bibliography=totoc,            % Literaturverz. wird ins Inhaltsverzeichnis eingetragen
+   listof=totoc,				% Abbildungs und TabellenVZ ins InhaltsVZ
+%  pointlessnumbers,    % Kapitelnummern immer ohne Punkt
+   numbers=noenddot,
+   %tablecaptionabove,   % korrekte Abstaende bei TabellenUEBERschriften
+   fleqn,               % fleqn: Glgen links (statt mittig)
+   %draft               % Keine Bilder in der Anzeige, overfull hboxes werden angezeigt
+   xcolor=table
+]{scrbook}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%% 					     Einstellungen	      							%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% Dadurch werden die Parameter der Vorlage wie Schriftart, Größe usw. geladen.
+%% Der Befehl "\input{file} lädt eine Datei, ohne sie im Dokument anzuzeigen.
+\input{lib/templatesettings}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%% 						Bereich des Dokumentes     			     		%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+%----------------------------------------------------------------------------------------
+%	TITLE-Page
+%----------------------------------------------------------------------------------------
+	\input{chapters/titlepage_group}
+%	\input{chapters/titlepage_alone}
+	\newpage
+
+%----------------------------------------------------------------------------------------
+%	ABSTRACT
+%----------------------------------------------------------------------------------------
+% 	\input{chapters/abstract}
+% 	\newpage
+	
+%----------------------------------------------------------------------------------------
+%	Explanation
+%----------------------------------------------------------------------------------------
+	\input{chapters/explanation}
+	\newpage
+	
+%----------------------------------------------------------------------------------------
+%	TABLE OF CONTENTS
+%----------------------------------------------------------------------------------------
+%	\pagenumbering{Roman} 
+%	\setcounter{page}{1}
+%	\begin{spacing}{1.0}
+% 		\tableofcontents
+% 		\newpage 
+%	\end{spacing}
+%	\newpage
+
+%----------------------------------------------------------------------------------------
+%	GLOSSAR
+%----------------------------------------------------------------------------------------
+%	\input{chapters/glossary}
+%	\newpage
+
+%----------------------------------------------------------------------------------------
+%	CHAPTERs
+%----------------------------------------------------------------------------------------
+	\setcounter{page}{1}
+	\pagenumbering{arabic}
+    \input{chapters/entwurf}
+%	\input{chapters/Einleitung}
+%	\input{chapters/drucken}
+%	\input{chapters/strukturen-latex}
+%	\input{chapters/tabellen}
+%	\input{chapters/listen}
+%	\input{chapters/bilder}
+%	\input{chapters/mathematik}
+%	\input{chapters/markdowninlatex}
+%	\input{chapters/Schluss}
+ 
+	\newpage
+
+%----------------------------------------------------------------------------------------
+%	BIBLIOGRAPHY und Listen
+%----------------------------------------------------------------------------------------
+	\begin{spacing}{1.0}
+		\listoffigures
+		\listoftables
+		\lstlistoflistings
+		\bibliography{bib/lib}
+	%	\bibliographystyle{dinat} % Sortierung der Zitate nach Aufruf im Text
+		\bibliographystyle{gerplain} % Deutscher Stil
+		\nocite{*}
+	\end{spacing}
+	\newpage
+	
+%----------------------------------------------------------------------------------------
+%	APPENDIX
+%----------------------------------------------------------------------------------------
+	\appendix
+	\input{chapters/appendix}
+
+\end{document}
